@@ -2,7 +2,7 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
+/* :root {
   --foreground-rgb: 0, 0, 0;
   --background-start-rgb: 214, 219, 220;
   --background-end-rgb: 255, 255, 255;
@@ -24,4 +24,13 @@ body {
       rgb(var(--background-end-rgb))
     )
     rgb(var(--background-start-rgb));
+} */
+
+@layer components{
+  .navList{
+    @apply bg-darkBlue px-4 md:px-0 hover:text-brandYellow hover:bg-blue-950
+  }
+  .navLink{
+    @apply block py-2 px-3 text-white  rounded md:bg-transparent md:p-0 hover:text-brandYellow
+  }
 }

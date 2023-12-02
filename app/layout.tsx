@@ -1,8 +1,11 @@
 import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
 import './globals.css'
-
-const inter = Inter({ subsets: ['latin'] })
+import { inter } from '@/app/ui/fonts';
+import Image from 'next/image';
+import SideNav from '@/app/ui/navbar';
+import InfoCard from './ui/InfoCard';
+import { missionVision } from "@/app/lib/placeholder-data";
 
 export const metadata: Metadata = {
   title: 'Create Next App',
@@ -16,7 +19,25 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={inter.className}>{children}</body>
+      <body className={`${inter.className} antialiased bg-hero-construction bg-fixed`}>
+      <div className="absolute inset-0 bg-black opacity-60"></div>
+        <SideNav />
+        {children}
+        {
+          missionVision.map((item,id)=>{
+            return(
+              <InfoCard
+              key={id}
+              title={item.title}
+              content={item.content}
+              image={item.image}
+              />
+            )
+          })
+        }
+        
+        </body>
+
     </html>
   )
 }
